@@ -1,0 +1,187 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/estilo.css" />
+    <link rel="stylesheet" href="css/materia-icon.css">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="css/material.blue_grey-indigo.min.css">
+    <title>Promo Paraiso</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-sm" style="background-color: #c2cfcf;">
+        <button id="menu" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect" for="menu" id="listMenu">
+
+        </ul>
+        <h4>
+            <a href="javascript:home()" class="link titulo">Promo Paraíso</a>
+        </h4>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" id="btnAdd">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-----------------------------------------Tela Inicial------------------------------------------ -->
+    <div class="container" id="home">
+        <ul class="demo-list-two mdl-list" id="listaGeral">
+
+
+        </ul>
+
+    </div>
+    <!-------------------------------------Login-------------------------------------------------------->
+
+    <div class="container login" id="login" style="display:none">
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="text" id="txtEmailLogin">
+            <label class="mdl-textfield__label" for="sample3">Email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" type="password" id="txtSenhaLogin">
+            <label class="mdl-textfield__label" for="sample3">Senha</label>
+        </div>
+        <br/>
+        <a href="javascript:cadastro()">Não tem conta? Crie uma agora.</a>
+        <br/>
+        <br/>
+        <button type="button" class="btn btn-lg btn-success" id="btnEntrar">Entrar</button>
+        <button type="button" class="btn btn-lg btn-danger" id="btnVolt">Voltar</button>
+        <br/>
+        <br/>
+    </div>
+    <div id="resp" class="row" style="display:none">
+        <div class="alert alert-danger">Usuário ou senha inválido.</div>
+    </div>
+
+    <!---------------------------------------Cadastro 1---------------------------------------------------->
+    <div class="container" id="cadastro1" style="display:none">
+        <h6>Passo 1/2</h6>
+
+
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nome Comercial</label>
+            <input type="text" class="form-control" id="txtNome" placeholder="modas e acessorios">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp" placeholder="email@email.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="txtSenha" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Telefone</label>
+            <input type="number" class="form-control" id="txtTelefone" placeholder="00000000">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Whatsapp</label>
+            <input type="number" class="form-control" id="txtWpp" placeholder="00000000">
+        </div>
+        <button type="button" class="btn btn btn-lg btn-primary btnProx" id="btnProximo">Próximo</button>
+        <div id="cad1" class="row" style="display:none">
+            <div class="alert alert-danger">Preencha todos os campos.</div>
+        </div>
+    </div>
+
+    <!-----------------------------------Cadastro 2---------------------------------------------------------->
+    <div class="container" id="cadastro2" style="display:none">
+        <h6>Passo 2/2</h6>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Endereço</label>
+            <input type="text" class="form-control" id="txtEndereco" placeholder="Av. Modas">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Número</label>
+            <input type="number" class="form-control" id="txtNumero" placeholder="860">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Bairro</label>
+            <input type="text" class="form-control" id="txtBairro" placeholder="Jd. das Rosas">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Cidade</label>
+            <input type="text" class="form-control" id="txtCidade" placeholder="Sao Sebastiao do Paraiso">
+        </div>
+        <button type="button" class="btn btn btn-lg btn-danger" id="btnVoltar">Voltar</button>
+        <button type="button" class="btn btn btn-lg btn-success btnSalvar" id="btnSalvar">Salvar</button>
+
+    </div>
+    <br/>
+    <br/>
+    <div id="cad2" class="row" style="display:none">
+        <div class="alert alert-danger">Preencha todos os campos.</div>
+    </div>
+
+
+    <!--------------------------- Listas---------------------------------------------------------------->
+    <div class="container" id="lista" style="display:none">
+        <div id="teste"></div>
+    </div>
+    <!---------------------------------Cadastra Promoção-------------------------------------------------------->
+    <div class="container" id="cadastraPromocao" style="display:none">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Descrição</label>
+            <input type="text" class="form-control" id="txtDescricao" placeholder="Camiseta">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Valor</label>
+            <input type="number" class="form-control" id="txtValor" placeholder="10,00">
+        </div>
+        <button type="button" class="btn btn-danger" id="btnExcluir">Excluir Promoção</button>
+        <button type="button" class="btn btn-primary" id="btnSalvarProduto">Salvar</button>
+
+    </div>
+    <!-----------------------Dados do vendedor-------------------------------------------->
+
+    <div class="container" id="dadosVendedor" style="display:none">
+        <button type="button" class="btn btn btn-secondary btnV" id="btnV">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <br/>
+        <div id="dados" class="informacao">
+        </div>
+        <div id="map" style="width: 320px; height: 380px;"></div>
+    </div>
+    <!-----------------------------Perfil-------------------------------------------------->
+    <div class="container perfil" id="perfil" style="display:none">
+        <h5>
+            <center>Meus Dados</center>
+        </h5>
+        <div id="dadosPerfil">
+
+        </div>
+        <button type="button" class="btn btn btn-lg btn-success" id="btnAlterar">Alterar Dados</button>
+        <button type="button" class="btn btn btn-lg btn-danger">Cancelar</button>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/dao.js"></script>
+    <script src="js/scripts.js"></script>
+    <script defer src="js/material.min.js"></script>
+    <script src="js/js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/geocoder.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/onion.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+.login{
+    margin-top:30%;
+    margin-left: 3%;
+}
+.btnProx{
+    margin-left: 64%;
+}
+.btnSalvar{
+    margin-left:45%;
+}
+.btn-circle-sm {
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    padding: 2px 0;
+    font-size: 20px;
+    line-height: 1.65;
+    border-radius: 30px;
+   
+}
+.informacao{
+    
+    font-size: 20px;
+    margin-top: -20%;
+    margin-bottom: 5%;
+}
+a.link{
+    color: #000000;
+    text-decoration: none;
+}
+a.link:active{
+    color: #000000;
+    text-decoration: none;
+}
+.btnEnt{
+    margin-left: -12px;
+
+}
+.row{
+    margin-left: 20%;
+}
+.vendedor{
+    text-align: center;
+}
+.perfil{
+    margin-top: -12%;
+}
+.btnV{
+    margin-top: -16%;
+}
+.titulo{
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
