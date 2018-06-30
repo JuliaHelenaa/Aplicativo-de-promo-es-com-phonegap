@@ -13,6 +13,9 @@ $(document).ready(function () {
     initialize();
 
     $("#btnAdd").click(function () {
+        $("#txtDescricao").val("");
+        $("#txtValor").val("");
+        idAtual = -1;
         if (idLogin < 0) {
             idLogin = -1;
             $("#login").show();
@@ -22,19 +25,23 @@ $(document).ready(function () {
             $("#listaGeral").hide();
             $("#cadastraPromocao").hide();
             $("#perfil").hide();
-            $("#btnExcluir").hide();
             $("#cadastro1").hide();
             $("#cadastro1").hide();
 
         } else {
+            
             $("#login").hide();
             $("#home").hide();
             $("#btnAdd").hide();
             $("#dadosVendedor").hide();
             $("#listaGeral").hide();
             $("#cadastraPromocao").show();
+            if (idAtual < 0) {
+                $("#btnExcluir").hide();
+            } else {
+                $("#btnExcluir").show();
+            }
             $("#perfil").hide();
-            $("#btnExcluir").hide();
             $("#cadastro1").hide();
             $("#cadastro1").hide();
         }
@@ -103,7 +110,6 @@ $(document).ready(function () {
             $("#home").show();
             $("#btnAdd").show();
             $("#listaGeral").show();
-            $("#home").hide();
             $("#login").hide();
             $("#cadastro1").hide();
             $("#cadastro2").hide();
@@ -111,6 +117,7 @@ $(document).ready(function () {
             $("#dadosVendedor").hide();
             $("#perfil").hide();
             carregaMenu();
+            listar();
             listarProd();
         } else {
             $("#cad2").fadeIn("fast", function (e) { // Exibir o bloco de mensagem de erro
@@ -144,8 +151,8 @@ $(document).ready(function () {
             });
         }
         carregaMenu();
-            listar();
-            listarProd();
+        listar();
+        listarProd();
         $("#txtEmailLogin").val("");
         $("#txtSenhaLogin").val("");
     });
@@ -193,7 +200,7 @@ $(document).ready(function () {
 
     });
 
-    $("#btnV").click(function(){
+    $("#btnV").click(function () {
         home();
     });
     $("#btnExcluir").click(function () {
@@ -245,6 +252,7 @@ function minhasPromocoes() {
                 "</a>" +
                 " </span>" +
                 " </li>");
+
         }
     }
     $("#btnAdd").show();
@@ -257,6 +265,7 @@ function minhasPromocoes() {
     $("#dadosVendedor").hide();
     $("#perfil").hide();
     listar();
+
 }
 function validaLogin() {
     usuarios = usuarioDao.listar();
@@ -291,7 +300,7 @@ function carrega(id) {
 }
 
 function initialize() {
-    
+
     var latlng = new google.maps.LatLng(-34.397, 150.644);
     var mapOptions = {
         zoom: 8,
@@ -378,11 +387,12 @@ function alteraDados(id) {
 }
 
 function alteraProduto(index) {
+    idAtual = index;
+    $("#cadastraPromocao").show();
     $("#txtDescricao").val(produtos[index].descricao);
     $("#txtValor").val(produtos[index].valor);
-    idAtual = index;
-    $("btnExcluir").show();
-    $("#cadastraPromocao").show();
+
+
     $("#btnAdd").hide();
     $("#home").hide();
     $("#login").hide();
@@ -447,7 +457,7 @@ function validaCadastro1() {
     var senha = $("#txtSenha").val();
     var telefone = $("#txtTelefone").val();
     var whatsapp = $("#txtWpp").val();
-    if (nome == "" && email == "" && senha == "" && telefone == "" && whatsapp == "" && usuarios[idLogin].email == email ) {
+    if (nome == "" && email == "" && senha == "" && telefone == "" && whatsapp == "" && usuarios[idLogin].email == email) {
         return true;
     } else {
         return false;
